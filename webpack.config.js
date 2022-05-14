@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { resolve } = require("path");
 
 const { NODE_ENV } = process.env;
+const PREFIX = NODE_ENV === "production" ? "otus--hw36-router/" : "/";
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
@@ -10,6 +11,7 @@ module.exports = {
   output: {
     filename: "bundle.js",
     path: resolve(`${__dirname}/dist`),
+    publicPath: PREFIX,
     clean: true,
     environment: {
       arrowFunction: false,
@@ -60,6 +62,7 @@ module.exports = {
       logging: "info",
     },
     compress: true,
+    historyApiFallback: true,
     port: 9000,
   },
   resolve: {
