@@ -55,6 +55,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: resolve(__dirname, "index.html"),
     }),
+    new HtmlWebpackPlugin({
+      template: resolve(__dirname, "index.html"),
+      filename: "404.html",
+    }),
     new MiniCssExtractPlugin(),
   ],
   devServer: {
